@@ -27,4 +27,24 @@ public class DataController {
         model.addAttribute("categories",items);
         return "categories";
     }
+    @GetMapping("/bacterias")
+    public String bacteria(Model model) {
+
+        var repo = new DataRepository();
+        var items = repo.getBacterias();
+
+        model.addAttribute("title", "Bacterias");
+        model.addAttribute("bacterias",items);
+        return "bacterias";
+    }
+    @GetMapping("/limits")
+    public String limit(Model model) {
+
+        var repo = new DataRepository();
+        var items = repo.getLimits();
+
+        model.addAttribute("title", "Limits");
+        model.addAttribute("limits",items);
+        return "limits";
+    }
 }

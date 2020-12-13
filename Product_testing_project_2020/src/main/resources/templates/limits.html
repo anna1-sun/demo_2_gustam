@@ -10,16 +10,19 @@
 <a href="/bacterias" title="Get list of bacteria">Bacterias</a>
 <a href="/limits" title="Get list of limits">Limits</a>
 
+
+<!--<a href="/products" title="Get product list" >Owners</a>-->
 <h1 th:text="${title}"></h1>
 <table id="products-table">
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-
+        <th>Bacteria</th>
+        <th>Limit</th>
+        <th>Category</th>
     <tr/>
-    <tr th:each="category: ${categories}">
-        <td th:text="${category.getId()}"></td>
-        <td th:text="${category.getName()}"></td>
+    <tr th:each="limit: ${limits}">
+        <td th:text="${limit.getProductId()}"></td>
+        <td th:text="${limit.getLimit()}"></td>
+        <td th:text="${limit.getCategoryId()}"></td>
     </tr>
 
 </table>
