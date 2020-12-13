@@ -13,6 +13,7 @@ public class DataRepository {
             factory = new Configuration().
                     configure().
                     addAnnotatedClass(Product.class).
+                    addAnnotatedClass(Category.class).
                     buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
@@ -25,6 +26,18 @@ public class DataRepository {
 
         try {
             return session.createQuery("FROM Product").list();
+        } catch (HibernateException exception) {
+            System.err.println(exception);
+        } finally {
+            session.close();
+        }
+        return new ArrayList<>();
+    }
+    public Iterable<Product> getCategories() {
+        var session = factory.openSession();
+
+        try {
+            return session.createQuery("FROM Category").list();
         } catch (HibernateException exception) {
             System.err.println(exception);
         } finally {

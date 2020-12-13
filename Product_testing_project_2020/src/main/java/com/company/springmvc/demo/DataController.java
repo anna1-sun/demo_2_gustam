@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class DataController {
     @GetMapping("/products")
-    public String owner(Model model) {
+    public String product(Model model) {
 
         var repo = new DataRepository();
         var items = repo.getProducts();
@@ -17,5 +17,14 @@ public class DataController {
         model.addAttribute("products",items);
         return "products";
     }
+    @GetMapping("/categories")
+    public String category(Model model) {
 
+        var repo = new DataRepository();
+        var items = repo.getCategories();
+
+        model.addAttribute("title", "Categories");
+        model.addAttribute("categories",items);
+        return "categories";
+    }
 }
