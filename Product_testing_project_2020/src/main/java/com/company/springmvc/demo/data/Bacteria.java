@@ -19,3 +19,4 @@ public class Bacteria {
     @Column(name = "name")
     private String name;
 }
+

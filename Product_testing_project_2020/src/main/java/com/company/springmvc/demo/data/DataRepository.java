@@ -16,7 +16,6 @@ public class DataRepository {
                     addAnnotatedClass(Product.class).
                     addAnnotatedClass(Category.class).
                     addAnnotatedClass(Bacteria.class).
-                    addAnnotatedClass(Limit.class).
                     buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
