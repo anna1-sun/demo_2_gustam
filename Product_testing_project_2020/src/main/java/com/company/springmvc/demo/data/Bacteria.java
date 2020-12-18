@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -13,10 +14,18 @@ import javax.persistence.*;
 @Table
 public class Bacteria {
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "bacteria")
+    private List<Limit> limits;
 }
+
+
+
+
+
 

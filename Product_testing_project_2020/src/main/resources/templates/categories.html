@@ -37,10 +37,12 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+
         <tr/>
         <tr th:each="category: ${categories}">
             <td th:text="${category.getId()}"></td>
             <td th:text="${category.getName()}"></td>
+
         </tr>
     </table>
 </div>
